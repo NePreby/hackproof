@@ -40,6 +40,8 @@ uv run hackproof reconcile
 uv run hackproof export
 ```
 
+Published schemas for data exports and public API models are indexed in [`apps/web/public/schema/index.json`](apps/web/public/schema/index.json) (`https://hackproof.vercel.app/schema/index.json`).
+
 ## Checks
 
 ```sh

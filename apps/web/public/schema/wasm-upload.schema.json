@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hackproof.vercel.app/schema/wasm-upload.schema.json",
+  "title": "WasmUpload",
+  "version": "1.0",
+  "properties": {
+    "wasm_hash": {
+      "title": "Wasm Hash",
+      "type": "string"
+    },
+    "uploader": {
+      "title": "Uploader",
+      "type": "string"
+    },
+    "tx_hash": {
+      "title": "Tx Hash",
+      "type": "string"
+    },
+    "size": {
+      "title": "Size",
+      "type": "integer"
+    },
+    "source_repo": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Source Repo"
+    },
+    "full_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Full Name"
+    },
+    "contracts": {
+      "title": "Contracts",
+      "type": "integer"
+    },
+    "uploaded_at": {
+      "format": "date-time",
+      "title": "Uploaded At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "wasm_hash",
+    "uploader",
+    "tx_hash",
+    "size",
+    "source_repo",
+    "full_name",
+    "contracts",
+    "uploaded_at"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hackproof.vercel.app/schema/contributor.schema.json",
+  "title": "Contributor",
+  "version": "1.0",
+  "properties": {
+    "login": {
+      "title": "Login",
+      "type": "string"
+    },
+    "url": {
+      "title": "Url",
+      "type": "string"
+    },
+    "avatar_url": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Avatar Url"
+    },
+    "contributions": {
+      "title": "Contributions",
+      "type": "integer"
+    },
+    "country": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Country"
+    }
+  },
+  "required": [
+    "login",
+    "url",
+    "avatar_url",
+    "contributions",
+    "country"
+  ],
+  "type": "object"
+}

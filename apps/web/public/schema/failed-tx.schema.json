@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hackproof.vercel.app/schema/failed-tx.schema.json",
+  "title": "FailedTx",
+  "version": "1.0",
+  "properties": {
+    "tx_hash": {
+      "title": "Tx Hash",
+      "type": "string"
+    },
+    "source_account": {
+      "title": "Source Account",
+      "type": "string"
+    },
+    "kind": {
+      "title": "Kind",
+      "type": "string"
+    },
+    "result_code": {
+      "title": "Result Code",
+      "type": "string"
+    },
+    "ledger": {
+      "title": "Ledger",
+      "type": "integer"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "tx_hash",
+    "source_account",
+    "kind",
+    "result_code",
+    "ledger",
+    "created_at"
+  ],
+  "type": "object"
+}

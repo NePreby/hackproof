@@ -1,0 +1,369 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hackproof.vercel.app/schema/project.schema.json",
+  "title": "Project",
+  "version": "1.0",
+  "$defs": {
+    "DependencyFingerprint": {
+      "properties": {
+        "ecosystems": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Ecosystems",
+          "type": "array"
+        },
+        "packages": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Packages",
+          "type": "object"
+        }
+      },
+      "title": "DependencyFingerprint",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "full_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Full Name"
+    },
+    "url": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Url"
+    },
+    "footprint": {
+      "enum": [
+        "contracts",
+        "classic",
+        "github"
+      ],
+      "title": "Footprint",
+      "type": "string"
+    },
+    "tier": {
+      "enum": [
+        "verified",
+        "likely",
+        "possible",
+        "unattributed"
+      ],
+      "title": "Tier",
+      "type": "string"
+    },
+    "contracts": {
+      "title": "Contracts",
+      "type": "integer"
+    },
+    "classic_ops": {
+      "title": "Classic Ops",
+      "type": "integer"
+    },
+    "assets": {
+      "title": "Assets",
+      "type": "integer"
+    },
+    "builders": {
+      "title": "Builders",
+      "type": "integer"
+    },
+    "wasm_uploads": {
+      "title": "Wasm Uploads",
+      "type": "integer"
+    },
+    "failed_txs": {
+      "title": "Failed Txs",
+      "type": "integer"
+    },
+    "first_activity": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "First Activity"
+    },
+    "last_activity": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Last Activity"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Description"
+    },
+    "homepage": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Homepage"
+    },
+    "stars": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Stars"
+    },
+    "forks": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Forks"
+    },
+    "language": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Language"
+    },
+    "license": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "License"
+    },
+    "owner": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Owner"
+    },
+    "owner_avatar": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Owner Avatar"
+    },
+    "country": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Country"
+    },
+    "dependencies": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/DependencyFingerprint"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "window_commits": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Window Commits"
+    },
+    "total_commits": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Total Commits"
+    },
+    "stellar_added_in_window": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Stellar Added In Window"
+    },
+    "created_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Created At"
+    },
+    "topics": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Topics"
+    },
+    "track": {
+      "anyOf": [
+        {
+          "enum": [
+            "genesis",
+            "scale"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Track"
+    },
+    "integrations": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Integrations",
+      "type": "array"
+    },
+    "award": {
+      "anyOf": [
+        {
+          "enum": [
+            "first",
+            "runner-up"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Award"
+    }
+  },
+  "required": [
+    "project_id",
+    "full_name",
+    "url",
+    "footprint",
+    "tier",
+    "contracts",
+    "classic_ops",
+    "assets",
+    "builders",
+    "wasm_uploads",
+    "failed_txs",
+    "first_activity",
+    "last_activity",
+    "description",
+    "homepage",
+    "stars",
+    "forks",
+    "language",
+    "license",
+    "owner",
+    "owner_avatar",
+    "country",
+    "dependencies",
+    "window_commits",
+    "total_commits",
+    "stellar_added_in_window",
+    "created_at",
+    "topics"
+  ],
+  "type": "object"
+}

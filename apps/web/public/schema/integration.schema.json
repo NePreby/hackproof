@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hackproof.vercel.app/schema/integration.schema.json",
+  "title": "Integration",
+  "version": "1.0",
+  "properties": {
+    "slug": {
+      "title": "Slug",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "category": {
+      "title": "Category",
+      "type": "string"
+    },
+    "site": {
+      "title": "Site",
+      "type": "string"
+    },
+    "projects": {
+      "title": "Projects",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "slug",
+    "name",
+    "category",
+    "site",
+    "projects"
+  ],
+  "type": "object"
+}

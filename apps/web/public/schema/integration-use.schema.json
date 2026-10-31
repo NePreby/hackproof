@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hackproof.vercel.app/schema/integration-use.schema.json",
+  "title": "IntegrationUse",
+  "version": "1.0",
+  "properties": {
+    "slug": {
+      "title": "Slug",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "method": {
+      "enum": [
+        "package",
+        "endpoint"
+      ],
+      "title": "Method",
+      "type": "string"
+    },
+    "evidence": {
+      "title": "Evidence",
+      "type": "string"
+    },
+    "path": {
+      "title": "Path",
+      "type": "string"
+    }
+  },
+  "required": [
+    "slug",
+    "name",
+    "method",
+    "evidence",
+    "path"
+  ],
+  "type": "object"
+}

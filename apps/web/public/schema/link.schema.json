@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hackproof.vercel.app/schema/link.schema.json",
+  "title": "Link",
+  "version": "1.0",
+  "properties": {
+    "subject_kind": {
+      "title": "Subject Kind",
+      "type": "string"
+    },
+    "subject": {
+      "title": "Subject",
+      "type": "string"
+    },
+    "method": {
+      "title": "Method",
+      "type": "string"
+    },
+    "path": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Path"
+    }
+  },
+  "required": [
+    "subject_kind",
+    "subject",
+    "method",
+    "path"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hackproof.vercel.app/schema/index.json",
+  "description": "Index of published data export schemas and public API response schemas for HackProof",
+  "export_schemas": [
+    {
+      "name": "hackathon-export",
+      "version": "1.0",
+      "json": "https://hackproof.vercel.app/schema/hackathon-export-1.0.json",
+      "yaml": "https://hackproof.vercel.app/schema/hackathon-export-1.0.yml"
+    },
+    {
+      "name": "hackathon-export",
+      "version": "1.1",
+      "json": "https://hackproof.vercel.app/schema/hackathon-export-1.1.json",
+      "yaml": "https://hackproof.vercel.app/schema/hackathon-export-1.1.yml"
+    },
+    {
+      "name": "hackathon-export",
+      "version": "1.2",
+      "json": "https://hackproof.vercel.app/schema/hackathon-export-1.2.json",
+      "yaml": "https://hackproof.vercel.app/schema/hackathon-export-1.2.yml"
+    }
+  ],
+  "api_schemas": [
+    {
+      "name": "builder",
+      "model": "Builder",
+      "version": "1.0",
+      "schema": "https://hackproof.vercel.app/schema/builder.schema.json"
+    },
+    {
+      "name": "contract",
+      "model": "Contract",
+      "version": "1.0",
+      "schema": "https://hackproof.vercel.app/schema/contract.schema.json"
+    },
+    {
+      "name": "contributor",
+      "model": "Contributor",
+      "version": "1.0",
+      "schema": "https://hackproof.vercel.app/schema/contributor.schema.json"
+    },
+    {
+      "name": "country-count",
+      "model": "CountryCount",
+      "version": "1.0",
+      "schema": "https://hackproof.vercel.app/schema/country-count.schema.json"
+    },
+    {
+      "name": "failed-tx",
+      "model": "FailedTx",
+      "version": "1.0",
+      "schema": "https://hackproof.vercel.app/schema/failed-tx.schema.json"
+    },
+    {
+      "name": "integration",
+      "model": "Integration",
+      "version": "1.0",
+      "schema": "https://hackproof.vercel.app/schema/integration.schema.json"
+    },
+    {
+      "name": "integration-use",
+      "model": "IntegrationUse",
+      "version": "1.0",
+      "schema": "https://hackproof.vercel.app/schema/integration-use.schema.json"
+    },
+    {
+      "name": "link",
+      "model": "Link",
+      "version": "1.0",
+      "schema": "https://hackproof.vercel.app/schema/link.schema.json"
+    },
+    {
+      "name": "project",
+      "model": "Project",
+      "version": "1.0",
+      "schema": "https://hackproof.vercel.app/schema/project.schema.json"
+    },
+    {
+      "name": "project-detail",
+      "model": "ProjectDetail",
+      "version": "1.0",
+      "schema": "https://hackproof.vercel.app/schema/project-detail.schema.json"
+    },
+    {
+      "name": "stats",
+      "model": "Stats",
+      "version": "1.0",
+      "schema": "https://hackproof.vercel.app/schema/stats.schema.json"
+    },
+    {
+      "name": "timeline-point",
+      "model": "TimelinePoint",
+      "version": "1.0",
+      "schema": "https://hackproof.vercel.app/schema/timeline-point.schema.json"
+    },
+    {
+      "name": "wasm-upload",
+      "model": "WasmUpload",
+      "version": "1.0",
+      "schema": "https://hackproof.vercel.app/schema/wasm-upload.schema.json"
+    }
+  ]
+}

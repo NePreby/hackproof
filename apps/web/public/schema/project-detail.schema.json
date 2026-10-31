@@ -1,0 +1,694 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hackproof.vercel.app/schema/project-detail.schema.json",
+  "title": "ProjectDetail",
+  "version": "1.0",
+  "$defs": {
+    "Contract": {
+      "properties": {
+        "contract_id": {
+          "title": "Contract Id",
+          "type": "string"
+        },
+        "deployer": {
+          "title": "Deployer",
+          "type": "string"
+        },
+        "wasm_hash": {
+          "title": "Wasm Hash",
+          "type": "string"
+        },
+        "tx_hash": {
+          "title": "Tx Hash",
+          "type": "string"
+        },
+        "ledger": {
+          "title": "Ledger",
+          "type": "integer"
+        },
+        "deployed_at": {
+          "format": "date-time",
+          "title": "Deployed At",
+          "type": "string"
+        },
+        "project_id": {
+          "title": "Project Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "contract_id",
+        "deployer",
+        "wasm_hash",
+        "tx_hash",
+        "ledger",
+        "deployed_at",
+        "project_id"
+      ],
+      "title": "Contract",
+      "type": "object"
+    },
+    "Contributor": {
+      "properties": {
+        "login": {
+          "title": "Login",
+          "type": "string"
+        },
+        "url": {
+          "title": "Url",
+          "type": "string"
+        },
+        "avatar_url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Avatar Url"
+        },
+        "contributions": {
+          "title": "Contributions",
+          "type": "integer"
+        },
+        "country": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Country"
+        }
+      },
+      "required": [
+        "login",
+        "url",
+        "avatar_url",
+        "contributions",
+        "country"
+      ],
+      "title": "Contributor",
+      "type": "object"
+    },
+    "DependencyFingerprint": {
+      "properties": {
+        "ecosystems": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Ecosystems",
+          "type": "array"
+        },
+        "packages": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "title": "Packages",
+          "type": "object"
+        }
+      },
+      "title": "DependencyFingerprint",
+      "type": "object"
+    },
+    "FailedTx": {
+      "properties": {
+        "tx_hash": {
+          "title": "Tx Hash",
+          "type": "string"
+        },
+        "source_account": {
+          "title": "Source Account",
+          "type": "string"
+        },
+        "kind": {
+          "title": "Kind",
+          "type": "string"
+        },
+        "result_code": {
+          "title": "Result Code",
+          "type": "string"
+        },
+        "ledger": {
+          "title": "Ledger",
+          "type": "integer"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tx_hash",
+        "source_account",
+        "kind",
+        "result_code",
+        "ledger",
+        "created_at"
+      ],
+      "title": "FailedTx",
+      "type": "object"
+    },
+    "IntegrationUse": {
+      "properties": {
+        "slug": {
+          "title": "Slug",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "method": {
+          "enum": [
+            "package",
+            "endpoint"
+          ],
+          "title": "Method",
+          "type": "string"
+        },
+        "evidence": {
+          "title": "Evidence",
+          "type": "string"
+        },
+        "path": {
+          "title": "Path",
+          "type": "string"
+        }
+      },
+      "required": [
+        "slug",
+        "name",
+        "method",
+        "evidence",
+        "path"
+      ],
+      "title": "IntegrationUse",
+      "type": "object"
+    },
+    "Link": {
+      "properties": {
+        "subject_kind": {
+          "title": "Subject Kind",
+          "type": "string"
+        },
+        "subject": {
+          "title": "Subject",
+          "type": "string"
+        },
+        "method": {
+          "title": "Method",
+          "type": "string"
+        },
+        "path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Path"
+        }
+      },
+      "required": [
+        "subject_kind",
+        "subject",
+        "method",
+        "path"
+      ],
+      "title": "Link",
+      "type": "object"
+    },
+    "Project": {
+      "properties": {
+        "project_id": {
+          "title": "Project Id",
+          "type": "string"
+        },
+        "full_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Full Name"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Url"
+        },
+        "footprint": {
+          "enum": [
+            "contracts",
+            "classic",
+            "github"
+          ],
+          "title": "Footprint",
+          "type": "string"
+        },
+        "tier": {
+          "enum": [
+            "verified",
+            "likely",
+            "possible",
+            "unattributed"
+          ],
+          "title": "Tier",
+          "type": "string"
+        },
+        "contracts": {
+          "title": "Contracts",
+          "type": "integer"
+        },
+        "classic_ops": {
+          "title": "Classic Ops",
+          "type": "integer"
+        },
+        "assets": {
+          "title": "Assets",
+          "type": "integer"
+        },
+        "builders": {
+          "title": "Builders",
+          "type": "integer"
+        },
+        "wasm_uploads": {
+          "title": "Wasm Uploads",
+          "type": "integer"
+        },
+        "failed_txs": {
+          "title": "Failed Txs",
+          "type": "integer"
+        },
+        "first_activity": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "First Activity"
+        },
+        "last_activity": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Last Activity"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Description"
+        },
+        "homepage": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Homepage"
+        },
+        "stars": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Stars"
+        },
+        "forks": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Forks"
+        },
+        "language": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Language"
+        },
+        "license": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "License"
+        },
+        "owner": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Owner"
+        },
+        "owner_avatar": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Owner Avatar"
+        },
+        "country": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Country"
+        },
+        "dependencies": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DependencyFingerprint"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "window_commits": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Window Commits"
+        },
+        "total_commits": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Total Commits"
+        },
+        "stellar_added_in_window": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Stellar Added In Window"
+        },
+        "created_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Created At"
+        },
+        "topics": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Topics"
+        },
+        "track": {
+          "anyOf": [
+            {
+              "enum": [
+                "genesis",
+                "scale"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Track"
+        },
+        "integrations": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Integrations",
+          "type": "array"
+        },
+        "award": {
+          "anyOf": [
+            {
+              "enum": [
+                "first",
+                "runner-up"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Award"
+        }
+      },
+      "required": [
+        "project_id",
+        "full_name",
+        "url",
+        "footprint",
+        "tier",
+        "contracts",
+        "classic_ops",
+        "assets",
+        "builders",
+        "wasm_uploads",
+        "failed_txs",
+        "first_activity",
+        "last_activity",
+        "description",
+        "homepage",
+        "stars",
+        "forks",
+        "language",
+        "license",
+        "owner",
+        "owner_avatar",
+        "country",
+        "dependencies",
+        "window_commits",
+        "total_commits",
+        "stellar_added_in_window",
+        "created_at",
+        "topics"
+      ],
+      "title": "Project",
+      "type": "object"
+    },
+    "WasmUpload": {
+      "properties": {
+        "wasm_hash": {
+          "title": "Wasm Hash",
+          "type": "string"
+        },
+        "uploader": {
+          "title": "Uploader",
+          "type": "string"
+        },
+        "tx_hash": {
+          "title": "Tx Hash",
+          "type": "string"
+        },
+        "size": {
+          "title": "Size",
+          "type": "integer"
+        },
+        "source_repo": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Source Repo"
+        },
+        "full_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Full Name"
+        },
+        "contracts": {
+          "title": "Contracts",
+          "type": "integer"
+        },
+        "uploaded_at": {
+          "format": "date-time",
+          "title": "Uploaded At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "wasm_hash",
+        "uploader",
+        "tx_hash",
+        "size",
+        "source_repo",
+        "full_name",
+        "contracts",
+        "uploaded_at"
+      ],
+      "title": "WasmUpload",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "project": {
+      "$ref": "#/$defs/Project"
+    },
+    "links": {
+      "items": {
+        "$ref": "#/$defs/Link"
+      },
+      "title": "Links",
+      "type": "array"
+    },
+    "integration_uses": {
+      "items": {
+        "$ref": "#/$defs/IntegrationUse"
+      },
+      "title": "Integration Uses",
+      "type": "array"
+    },
+    "contributors": {
+      "items": {
+        "$ref": "#/$defs/Contributor"
+      },
+      "title": "Contributors",
+      "type": "array"
+    },
+    "contracts": {
+      "items": {
+        "$ref": "#/$defs/Contract"
+      },
+      "title": "Contracts",
+      "type": "array"
+    },
+    "wasm_uploads": {
+      "items": {
+        "$ref": "#/$defs/WasmUpload"
+      },
+      "title": "Wasm Uploads",
+      "type": "array"
+    },
+    "failed_txs": {
+      "items": {
+        "$ref": "#/$defs/FailedTx"
+      },
+      "title": "Failed Txs",
+      "type": "array"
+    }
+  },
+  "required": [
+    "project",
+    "links",
+    "integration_uses",
+    "contributors",
+    "contracts",
+    "wasm_uploads",
+    "failed_txs"
+  ],
+  "type": "object"
+}

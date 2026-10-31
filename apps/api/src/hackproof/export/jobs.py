@@ -5,6 +5,7 @@ import yaml
 
 from hackproof.config import ROOT
 from hackproof.db import open_pool, pool
+from hackproof.export.api_schemas import export_api_schemas
 from hackproof.export.build import build_export
 from hackproof.export.models import SCHEMA_VERSION
 from hackproof.export.render import json_schema, to_json, to_yaml
@@ -38,3 +39,6 @@ async def run_export() -> None:
         yaml.safe_dump(schema, sort_keys=False, allow_unicode=True, width=100),
     )
     log.info("wrote %s projects to %s", len(export.projects), data)
+
+    schema_files = export_api_schemas()
+    log.info("wrote %s API schema files and index.json", len(schema_files))

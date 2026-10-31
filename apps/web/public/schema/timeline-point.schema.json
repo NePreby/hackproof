@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hackproof.vercel.app/schema/timeline-point.schema.json",
+  "title": "TimelinePoint",
+  "version": "1.0",
+  "properties": {
+    "hour": {
+      "format": "date-time",
+      "title": "Hour",
+      "type": "string"
+    },
+    "contracts": {
+      "title": "Contracts",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "hour",
+    "contracts"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hackproof.vercel.app/schema/stats.schema.json",
+  "title": "Stats",
+  "version": "1.0",
+  "properties": {
+    "projects": {
+      "title": "Projects",
+      "type": "integer"
+    },
+    "verified_projects": {
+      "title": "Verified Projects",
+      "type": "integer"
+    },
+    "likely_projects": {
+      "title": "Likely Projects",
+      "type": "integer"
+    },
+    "possible_projects": {
+      "title": "Possible Projects",
+      "type": "integer"
+    },
+    "unattributed_accounts": {
+      "title": "Unattributed Accounts",
+      "type": "integer"
+    },
+    "contracts": {
+      "title": "Contracts",
+      "type": "integer"
+    },
+    "builders": {
+      "title": "Builders",
+      "type": "integer"
+    },
+    "contributors": {
+      "title": "Contributors",
+      "type": "integer"
+    },
+    "countries": {
+      "title": "Countries",
+      "type": "integer"
+    },
+    "wasm_uploads": {
+      "title": "Wasm Uploads",
+      "type": "integer"
+    },
+    "failed_txs": {
+      "title": "Failed Txs",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "projects",
+    "verified_projects",
+    "likely_projects",
+    "possible_projects",
+    "unattributed_accounts",
+    "contracts",
+    "builders",
+    "contributors",
+    "countries",
+    "wasm_uploads",
+    "failed_txs"
+  ],
+  "type": "object"
+}

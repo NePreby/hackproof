@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hackproof.vercel.app/schema/contract.schema.json",
+  "title": "Contract",
+  "version": "1.0",
+  "properties": {
+    "contract_id": {
+      "title": "Contract Id",
+      "type": "string"
+    },
+    "deployer": {
+      "title": "Deployer",
+      "type": "string"
+    },
+    "wasm_hash": {
+      "title": "Wasm Hash",
+      "type": "string"
+    },
+    "tx_hash": {
+      "title": "Tx Hash",
+      "type": "string"
+    },
+    "ledger": {
+      "title": "Ledger",
+      "type": "integer"
+    },
+    "deployed_at": {
+      "format": "date-time",
+      "title": "Deployed At",
+      "type": "string"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_id",
+    "deployer",
+    "wasm_hash",
+    "tx_hash",
+    "ledger",
+    "deployed_at",
+    "project_id"
+  ],
+  "type": "object"
+}

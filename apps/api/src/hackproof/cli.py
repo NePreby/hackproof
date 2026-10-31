@@ -22,7 +22,12 @@ def main() -> None:
         "--projects", action="store_true", help="only scan repos that are already projects"
     )
     commands.add_parser("reconcile", help="link chain activity to repos and build projects")
-    commands.add_parser("export", help="write the json and yaml export and its schema")
+    export_cmd = commands.add_parser("export", help="write the json and yaml export and its schema")
+    export_cmd.add_argument(
+        "--schemas-only",
+        action="store_true",
+        help="generate API schemas and index.json without requiring database connection",
+    )
     args = parser.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
@@ -37,4 +42,9 @@ def main() -> None:
         case "reconcile":
             asyncio.run(run_reconcile())
         case "export":
-            asyncio.run(run_export())
+            if getattr(args, "schemas_only", False):
+                from hackproof.export.api_schemas import export_api_schemas
+
+                export_api_schemas()
+            else:
+                asyncio.run(run_export())

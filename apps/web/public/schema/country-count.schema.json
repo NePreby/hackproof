@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hackproof.vercel.app/schema/country-count.schema.json",
+  "title": "CountryCount",
+  "version": "1.0",
+  "properties": {
+    "country": {
+      "title": "Country",
+      "type": "string"
+    },
+    "contributors": {
+      "title": "Contributors",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "country",
+    "contributors"
+  ],
+  "type": "object"
+}
